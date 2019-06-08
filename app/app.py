@@ -6,16 +6,7 @@ import json
 app = Flask(__name__)
 
 
-def variants(zoekVariant) -> List[Dict]:
-    
-    f = open(zoekVariant, 'r')
-    for line in f:
-        waarden = line.split(",")
-        chrom = waarden[0]
-        pos = waarden[1]
-    
-    print("chrom")
-    print("pos")
+def variants(chrom, pos, aft):
 
     config = {
         'user': 'root',
@@ -27,19 +18,25 @@ def variants(zoekVariant) -> List[Dict]:
 
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor()
-    query = 'SELECT * FROM variants WHERE chrom=%s AND pos=%s;'
-    cursor.execute(query, (chrom,pos))
-    results = cursor.fetchall()
+    query = 'SELECT * FROM variants WHERE chrom=%s AND pos=%s AND aft=%s;'
+    cursor.execute(query, (chrom,pos,aft))
+    results = cursor.fetchone()
     cursor.close()
     connection.close()
 
     return results
 
 
-@app.route('/', methods = ['GET'])
-def index() -> str:
-    results = variants("~/app/inputFile.txt")
+@app.route('/')
+def index():
+    chrom = request.args.get('chrom')
+    pos =  request.args.get('pos')
+    aft =  request.args.get('aft')
+    results = variants(chrom, pos, aft)
     return str(results)
+
+# results = variants("~/app/inputFile.txt")
+   # return str(results)
     #return("hello")
 
 if __name__ == '__main__':
