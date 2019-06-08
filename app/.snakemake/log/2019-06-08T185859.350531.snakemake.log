@@ -1,0 +1,2 @@
+SyntaxError in line 8 of /home/minor-g2/Documents/Rivka+Lotte/BioProject2/app/Snakefile:
+Command must be given as string after the shell keyword. (Snakefile, line 8)
