@@ -1,0 +1,11 @@
+Error in rule bullshit:
+    jobid: 0
+    output: outputVariants.txt
+
+RuleException:
+CalledProcessError in line 14 of /home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile:
+Command ' set -euo pipefail;  wget 'http://0.0.0.0:5000/?chrom=Y&pos=3453&aft=G
+' --output-documentoutputVariants.txt ' returned non-zero exit status 2.
+  File "/home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile", line 14, in __rule_bullshit
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Exiting because a job execution failed. Look above for error message

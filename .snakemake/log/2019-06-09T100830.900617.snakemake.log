@@ -1,0 +1,3 @@
+NameError in line 16 of /home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile:
+name 'alles' is not defined
+  File "/home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile", line 16, in <module>

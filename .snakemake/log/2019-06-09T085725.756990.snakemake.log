@@ -1,0 +1,2 @@
+SyntaxError in line 12 of /home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile:
+Multiple run or shell keywords in rule all. (Snakefile, line 12)

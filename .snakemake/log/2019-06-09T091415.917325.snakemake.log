@@ -1,0 +1,9 @@
+Error in rule all:
+    jobid: 0
+
+RuleException:
+NameError in line 12 of /home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile:
+name 'retrun' is not defined
+  File "/home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile", line 12, in __rule_all
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Exiting because a job execution failed. Look above for error message

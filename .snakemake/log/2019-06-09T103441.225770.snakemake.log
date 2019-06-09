@@ -1,0 +1,22 @@
+Building DAG of jobs...
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1
+
+rule all:
+    jobid: 0
+
+Error in rule all:
+    jobid: 0
+
+RuleException:
+CalledProcessError in line 2 of /home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile:
+Command ' set -euo pipefail;  wget 'http://0.0.0.0:5000/chrom=X&pos=1&aft=A' ' returned non-zero exit status 8.
+  File "/home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile", line 2, in __rule_all
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2019-06-09T103441.225770.snakemake.log

@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	api
+	2
+
+rule api:
+    output: varianten.txt
+    jobid: 1
+
+Error in rule api:
+    jobid: 1
+    output: varianten.txt
+
+RuleException:
+AttributeError in line 15 of /home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile:
+'Rule' object has no attribute 'chrom'
+  File "/home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile", line 15, in __rule_api
+  File "/usr/lib/python3.6/string.py", line 190, in format
+  File "/usr/lib/python3.6/string.py", line 194, in vformat
+  File "/usr/lib/python3.6/string.py", line 234, in _vformat
+  File "/usr/lib/python3.6/string.py", line 305, in get_field
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2019-06-09T093113.245849.snakemake.log
