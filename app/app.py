@@ -35,9 +35,5 @@ def index():
     results = variants(chrom, pos, aft)
     return str(results)
 
-# results = variants("~/app/inputFile.txt")
-   # return str(results)
-    #return("hello")
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

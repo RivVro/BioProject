@@ -1,0 +1,2 @@
+SyntaxError in line 4 of /home/minor-g2/Documents/Rivka+Lotte/BioProject2/Snakefile:
+Expecting rule keyword, comment or docstrings inside a rule definition. (Snakefile, line 4)

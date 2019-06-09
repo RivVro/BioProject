@@ -1,10 +1,7 @@
-rule container:
-    shell: "docker-compose up"
-
-rule vulDatabase:
-    input: "databaseData.txt"
-    script: "vulDatabase.py"
-
-rule vindVariant:
-    input: "inputFile.txt"
-    script: "app.py"
+rule all:
+    input:
+        'inputFile.txt'
+    run:
+        with open(input[0], "r") as f:
+            for line in f:
+                print(line)
