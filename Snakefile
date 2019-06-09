@@ -7,8 +7,6 @@ rule dataOphalen:
 		with open(input[0],"r") as f:
 			line = f.readline()
 			waarden = line.split(",")
-			print(waarden)
-			print(waarden[0])
 			chrom = waarden[0]
 			pos = waarden[1]
 			aft = waarden[2].replace("\n", "")
