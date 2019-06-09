@@ -1,4 +1,4 @@
-rule bullshit:
+rule dataOphalen:
 	input:
 		'inputFile.txt'
 	output: 
@@ -7,9 +7,7 @@ rule bullshit:
 		with open(input[0],"r") as f:
 			line = f.readline()
 			waarden = line.split(",")
-			chrom = waarden[0]
-			pos = waarden[1]
-			aft = waarden[2]
-			print(type(chrom))
-			print(chrom, pos, aft)
-			shell("wget 'http://0.0.0.0:5000/?chrom=Y&pos=3453&aft=G' --output-document {output}")
+			chrom = waarden[0].replace("'", "")
+			pos = waarden[1].replace("'", "")
+			aft = waarden[2].replace("'", "")
+			shell("wget 'http://0.0.0.0:5000/?chrom={chrom}&pos={pos}&aft={aft}' --output-document {output}")
