@@ -18,12 +18,13 @@ def variants(chrom, pos, aft):
 
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor()
-    query = 'SELECT * FROM variants WHERE chrom=%s AND pos=%s AND aft=%s;'
+    query = 'SELECT * FROM variants WHERE chrom=%s AND pos=%s AND aft=%s AND freq<0.01;'
     cursor.execute(query, (chrom,pos,aft))
     results = cursor.fetchone()
     cursor.close()
     connection.close()
-
+    if results == none:
+        print('deze positie is niet benign')
     return results
 
 
