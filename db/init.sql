@@ -16,5 +16,5 @@ INSERT INTO variants
   (chrom, pos, bef, aft, freq, snpid)
 #waarden afkomstig uit gnomad
 VALUES
-  ('Y','3453','A','G','0.3533','snp'),
+  ('Y','2654979','A','C','0.3533','snp'),
   ('Y','3432','T','G','0.323432','snp');
