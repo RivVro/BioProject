@@ -19,14 +19,11 @@ def variants(chrom, pos, aft):
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor()
 #query die zoekt naar varianten die de chromosoom, positie en alternative van de user input bevatten.
-    query = 'SELECT * FROM variants WHERE chrom=%s AND pos=%s AND aft=%s AND freq<0.01;'
+    query = 'SELECT * FROM variants WHERE chrom=%s AND pos=%s AND aft=%s;'
     cursor.execute(query, (chrom,pos,aft))
     results = cursor.fetchone()
     cursor.close()
     connection.close()
-#Wanneer de opgevraagde positie niet in de database is gevonden vind er een print plaats
-    if results == none:
-        print('deze positie is niet benign of bestaat niet in de database')
     return results
 
 #api die de user input meegeeft
