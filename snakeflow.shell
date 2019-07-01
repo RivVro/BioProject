@@ -1,0 +1,4 @@
+snakemake --force --snakefile snakefile1 input_outputdata # > /dev/null 2>&1
+echo "-- input_outputdata was executed --"
+#snakemake --force --snakefile snakefile1 input_validatedata # > /dev/null 2>&1
+#echo "-- input_validatedata was executed --"
