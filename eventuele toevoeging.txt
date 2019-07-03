@@ -1,0 +1,7 @@
+uit het clinvar bestand halen:
+'trait': [.....] -> ziektes hieraan gelinked
+'review': [	-> data validatie
+'preferred_name':	-> gen naam, verandering nucleotide + aa
+'clinvar':  -> voorspelling
+'last evaluated':	-> laatste x geëvalueerd 
+

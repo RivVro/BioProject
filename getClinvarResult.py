@@ -6,11 +6,16 @@ Created on Mon Jul  1 20:56:40 2019
 """
 import myvariant
 mv = myvariant.MyVariantInfo()
-clinvar_result = mv.getvariant("chr7:g.140453134T>C")
+info = mv.querymany(['rs121913364'], scopes='dbsnp.rsid')
+a = ([d['_id'] for d in info])
+genomeposition = (a[0])
+print(genomeposition)
+clinvar_result = mv.getvariant(genomeposition)
 text = str(clinvar_result)
+print(clinvar_result)
 file = open("test.txt","w") #opens file with name of "test.txt"
-# if statement variabele not null
-if text != None:
+# if statement variabele null
+if text == None:
   file.write("No results found on Clinvar")
 else:
   file.write(text)
