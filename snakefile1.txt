@@ -15,24 +15,30 @@ rule input_selectdata:		# rule voor het verkrijgen van geschikte data voor de da
 rule input_databasedata:	# rule voor vullen van de database
     input:
 		txtLijstSNP = "LijstSNP.txt",	# bestand dat alle data voor de database bevat
-		pythonvullendb = "vulDatabase.py" 	# bestand voor het vullen van de database (bevat sql statemnets) 
+		pythonvullendb = "vulDatabase.py" 	# bestand voor het vullen van de database (bevat sql statemnets)
+	output:
+        "output.txt"
     shell:
-        "python3 {input.pythonvullendb}{input.txtLijstSNP}"
+        "python3 {input.pythonvullendb}{input.txtLijstSNP}> {output}"
+		
+		
+		# !!!!rule die output vullen database linkt aan rule raadplegen database!!!!
+
 
 rule input_outputdata:		# rule voor het raadplegen van de database
     input:
-		txtbestand = "LijstSNP.txt",	# bestand dat alle data van de database bevat
+		txtInputUser = "InputUser.txt",	# bestand dat de opgegeven user input bevat
 		pythonraadpleegdb = "app.py" 	# bestand dat het sql statement bevat om de gevraagde gegevens uit de database op te halen
     output:
-        "data-user/nucleotidechange_benignormaligne/{sample}.txt"
+        "outputdb.txt"					# bestand dat de output van het raadplegen vd database bevat
     shell:
-        "python3 {input.pythonraadpleegdb}{input.txtbestand} > {output}"
+        "python3 {input.pythonraadpleegdb}{input.txtInputUser} > {output}"
 		
 #rule input_validatedata:		# rule voor valideren van de data
     #input:
-		#txtbestand = "LijstSNPUser.txt",	# bestand dat data behorend bij de input van de gebruiker bevat
-		#pythonbestand = "pythonbestand" 	# bestand dat mbv de SNPid het valideerd in Clinvar
+		#txtoutputdb = "outputdb.txt",	# bestand dat data behorend bij de input van de gebruiker bevat
+		#ClinvarResult = "getClinvarResult.py" 	# bestand dat mbv de SNPid het valideerd in Clinvar
     #output:
-        #"data-user/nucleotidechange_validated.txt"	# bestand 
+        #"ClinvarResults.txt"	# bestand dat de gevonden clinvar resultaten bevat
     #shell:
-        #"python3 {input.pythonbestand}{input.txtbestand} > {output}"
+        #"python3 {input.ClinvarResult}{input.txtoutputdb} > {output}"
