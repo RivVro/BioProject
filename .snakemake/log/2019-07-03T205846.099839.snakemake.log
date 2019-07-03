@@ -1,0 +1,16 @@
+Building DAG of jobs...
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	input_selectdata
+	1
+
+rule input_selectdata:
+    input: gnomad.exomes.r2.1.1.sites.Y.vcf
+    output: LijstSNP.txt
+    jobid: 0
+
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2019-07-03T205846.099839.snakemake.log

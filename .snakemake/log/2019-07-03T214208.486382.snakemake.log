@@ -1,0 +1,30 @@
+Building DAG of jobs...
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	input_databasedata
+	1	input_selectdata
+	2
+
+rule input_selectdata:
+    input: gnomad.exomes.r2.1.1.sites.Y.vcf, dataGnomad.py
+    output: LijstSNP.txt
+    jobid: 1
+
+Error in rule input_selectdata:
+    jobid: 1
+    output: LijstSNP.txt
+
+RuleException:
+AttributeError in line 8 of /home/rivka/BioProject/Snakefile:
+'str' object has no attribute 'py'
+  File "/home/rivka/BioProject/Snakefile", line 8, in __rule_input_selectdata
+  File "/usr/lib/python3.6/string.py", line 190, in format
+  File "/usr/lib/python3.6/string.py", line 194, in vformat
+  File "/usr/lib/python3.6/string.py", line 234, in _vformat
+  File "/usr/lib/python3.6/string.py", line 305, in get_field
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2019-07-03T214208.486382.snakemake.log

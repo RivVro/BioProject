@@ -1,0 +1,11 @@
+Error in rule input_selectdata:
+    jobid: 0
+    output: LijstSNP.txt
+
+RuleException:
+UnicodeDecodeError in line 8 of /home/rivka/BioProject/Snakefile:
+'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
+  File "/home/rivka/BioProject/Snakefile", line 8, in __rule_input_selectdata
+  File "/usr/lib/python3.6/codecs.py", line 321, in decode
+  File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Exiting because a job execution failed. Look above for error message
