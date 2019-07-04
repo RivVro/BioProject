@@ -1,11 +1,10 @@
 rule input_selectdata:		
 	input:
-		gnomad="gnomad.exomes.r2.1.1.sites.Y.vcf",
-		pythondata="dataGnomad.py" 
+		'dataGnomad.py','gnomad.exomes.r2.1.1.sites.Y.vcf' 
 	output:
-		"LijstSNP.txt" 
+		'LijstSNP.txt' 
 	shell:
-		"python3 {input.gnomad}{input.pythondata}> {output}"
+		'python {input[0]} {input[1]}> {output}'
 
 rule input_databasedata:	
 	input:
@@ -19,10 +18,15 @@ rule input_databasedata:
 		
 rule input_outputdata:		
 	input:
-		txtInputUser = "InputUser.txt",	
-		pythonraadpleegdb = "app.py"
+		"InputUser.txt"
 	output:
 		"outputdb.txt"
-	shell:
-		"python3 {input.pythonraadpleegdb}{input.txtInputUser} > {output}"
+	run:
+		with open (input[0],"r") as f:
+			line = f.readline()
+			waarden = line.split(",")
+			chrom = waarden[0]
+			pos = waarden[1]
+			aft = waarden[2].replace("\n","")
+			shell("wget 'http://0.0.0.0:5000/?chrom={chrom}&pos={pos}&aft={aft}' --output-document{output}")
 
