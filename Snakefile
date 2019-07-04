@@ -11,14 +11,20 @@ rule input_databasedata:
 		txtLijstSNP = "LijstSNP.txt",	
 		pythonvullendb = "vulDatabase.py"
 	output:
-		"output.txt"
+		"outputRule2.txt"
 	shell:
 		"python3 {input.pythonvullendb}{input.txtLijstSNP}> {output}"
 		
 		
 rule input_outputdata:		
 	input:
+<<<<<<< HEAD
 		"InputUser.txt"
+=======
+		dbGoedkeuring = "outputRule2.txt",
+		txtInputUser = "InputUser.txt",	
+		pythonraadpleegdb = "app.py"
+>>>>>>> 47b038a37d16fbed3b2405cd6a4eee7abf367b97
 	output:
 		"outputdb.txt"
 	run:
